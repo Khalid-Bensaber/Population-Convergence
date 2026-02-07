@@ -15,8 +15,10 @@ simpop = "simpop.cli:main"
 
 [dependency-groups]
 dev = [
+    "mypy>=1.19.1",
     "pre-commit>=4.5.1",
     "pytest>=9.0.2",
+    "pytest-cov>=7.0.0",
     "ruff>=0.15.0",
 ]
 
@@ -34,7 +36,8 @@ indent-style = "space"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-addopts = "-q"
+addopts = "-q --cov=simpop --cov-report=term-missing"
+
 
 [build-system]
 requires = ["hatchling"]
